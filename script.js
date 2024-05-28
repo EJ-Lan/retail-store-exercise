@@ -44,4 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
         })
+        // Catch error if unable to fetch response from navigation.json
+        .catch((error) => {
+            console.log(error);
+        });
 });
