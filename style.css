@@ -14,6 +14,7 @@ nav {
     width: auto;
     padding: 0 90px;
     border-bottom: 1px solid #979797;
+    position: relative;
 }
 
 nav a {
@@ -28,4 +29,21 @@ nav a {
 
 nav a:hover {
     color: #0088CC
+}
+
+nav a.active {
+    color: #000000;
+}
+
+nav a.active:hover {
+    color: #000000;
+    cursor: default;
+}
+
+nav .animation {
+    position: absolute;
+    height: 1px;
+    bottom: 0;
+    background: #000000;
+    transition: all .5s ease 0s;
 }
