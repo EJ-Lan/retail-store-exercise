@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Sydney": "Australia/Sydney"
             };
 
-            // Initialize fist link time
+            // Initialize fist link timezone and put into html
             let now = new Date();
             let time = new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: 'numeric', hour12: true, timeZone: timezones[firstLink.textContent] }).format(now);
             let currentTime = document.querySelector('.time');
@@ -60,11 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     animation.style.width = `${link.getBoundingClientRect().width}px`;
                     animation.style.left = `${link.getBoundingClientRect().left - document.querySelector('nav').getBoundingClientRect().left}px`;
 
-                    // Get current time in the city's timezone
+                    // Get current time in the city's timezone and put into html
                     now = new Date();
                     time = new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: 'numeric', hour12: true, timeZone: timezones[link.textContent] }).format(now);
-
-                    // Put current time into html
                     currentTime = document.querySelector('.time');
                     currentTime.textContent = time;
                 });
