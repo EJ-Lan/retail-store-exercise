@@ -4,13 +4,14 @@ body {
     margin: 0;
     display: grid;
     place-items: center;
+    background: white;
 }
 
 nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50px;
+    height: 30px;
     width: auto;
     padding: 0 90px;
     border-bottom: 1px solid #979797;
@@ -24,7 +25,7 @@ nav a {
     text-decoration: none;
     white-space: nowrap;
     margin: 0 10px;
-    padding: 0 15px;
+    padding: 0 20px;
 }
 
 nav a:hover {
@@ -46,4 +47,22 @@ nav .animation {
     bottom: 0;
     background: #000000;
     transition: all .5s ease 0s;
+}
+
+@media (max-width: 1024px) {
+    nav {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        border-bottom: none;
+    }
+
+    nav a {
+        font-size: 16px;
+        margin: 10px 0;
+    }
+
+    nav .animation {
+        display: none;
+    }
 }
