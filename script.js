@@ -23,6 +23,24 @@ document.addEventListener('DOMContentLoaded', () => {
             // Calculate width of the link and relative position of the link
             animation.style.width = `${firstLink.getBoundingClientRect().width}px`;
             animation.style.left = `${firstLink.getBoundingClientRect().left - document.querySelector('nav').getBoundingClientRect().left}px`;
+            firstLink.classList.add('active');
+
+            // Map city names to their respective timezones
+            const timezones = {
+                "Cupertino": "America/Los_Angeles",
+                "New York City": "America/New_York",
+                "London": "Europe/London",
+                "Amsterdam": "Europe/Amsterdam",
+                "Tokyo": "Asia/Tokyo",
+                "Hong Kong": "Asia/Hong_Kong",
+                "Sydney": "Australia/Sydney"
+            };
+
+            // Initialize fist link time
+            let now = new Date();
+            let time = new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: 'numeric', hour12: true, timeZone: timezones[firstLink.textContent] }).format(now);
+            let currentTime = document.querySelector('.time');
+            currentTime.textContent = time;
            
             // For each link in the nav element
             document.querySelectorAll('nav a').forEach((link) => {
@@ -41,6 +59,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Calculate width and position of the link for the animation
                     animation.style.width = `${link.getBoundingClientRect().width}px`;
                     animation.style.left = `${link.getBoundingClientRect().left - document.querySelector('nav').getBoundingClientRect().left}px`;
+
+                    // Get current time in the city's timezone
+                    now = new Date();
+                    time = new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: 'numeric', hour12: true, timeZone: timezones[link.textContent] }).format(now);
+
+                    // Put current time into html
+                    currentTime = document.querySelector('.time');
+                    currentTime.textContent = time;
                 });
             });
         })

@@ -49,6 +49,15 @@ nav .animation {
     transition: all .5s ease 0s;
 }
 
+.time {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media (max-width: 1024px) {
     nav {
         flex-direction: column;
